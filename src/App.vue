@@ -16,6 +16,7 @@ import GraphvizViewer from './components/GraphvizViewer.vue'
   margin: 0;
   padding: 0;
   height: 100vh;
+  width: 100vw;
   overflow: hidden;
 }
 
@@ -23,8 +24,10 @@ import GraphvizViewer from './components/GraphvizViewer.vue'
   box-sizing: border-box;
 }
 
-body {
+html, body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>
