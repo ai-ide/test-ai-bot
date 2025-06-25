@@ -1,13 +1,13 @@
 <template>
   <div id="app">
-    <header>
-      <img alt="Vue logo" class="logo" src="./assets/vue.svg" width="125" height="125" />
-      <div class="wrapper">
+    <header class="app-header">
+      <div class="header-content">
+        <img alt="Vue logo" class="logo" src="./assets/vue.svg" width="60" height="60" />
         <HelloWorld msg="欢迎使用 Vite + Vue!" />
       </div>
     </header>
 
-    <main>
+    <main class="app-main">
       <TheWelcome />
     </main>
   </div>
@@ -19,64 +19,67 @@ import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+#app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.app-header {
+  padding: 2rem 0;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
 }
 
 .logo {
   display: block;
-  margin: 0 auto 2rem;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  transition: transform 0.3s ease;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
+.logo:hover {
+  transform: rotate(360deg);
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.app-main {
+  flex: 1;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+@media (max-width: 768px) {
+  .app-header {
+    padding: 1.5rem 0;
   }
-
+  
+  .header-content {
+    padding: 0 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
   .logo {
-    margin: 0 2rem 0 0;
+    width: 50px;
+    height: 50px;
   }
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+@media (prefers-color-scheme: dark) {
+  #app {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-    padding: 1rem 0;
-    margin-top: 1rem;
+  
+  .app-header {
+    background: rgba(52, 73, 94, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 }
 </style>
